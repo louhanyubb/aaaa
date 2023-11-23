@@ -46,9 +46,9 @@ def get_weather(region):
     #location_id = response.['location'][0]["id"]
     location_id = response.get('location', [])
     if location_id:
-    location_id = location_id[0].get("id")
+        location_id = location_id[0].get("id")
     else:
-    print("无法获取地区信息，请检查API响应结构")
+        print("无法获取地区信息，请检查API响应结构")
     weather_url = "https://devapi.qweather.com/v7/weather/3d?location={}&key={}".format(location_id, key)
     response = get(weather_url, headers=headers).json()
     # 天气帅达版
