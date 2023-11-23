@@ -44,24 +44,24 @@ def get_weather(region):
 
     # 获取地区的location--id
     #location_id = response.['location'][0]["id"]
-    location_id = response.get('location', [])
-    if location_id:
-        location_id = location_id[0].get("id")
-    else:
-        print("无法获取地区信息，请检查API响应结构")
-    weather_url = "https://devapi.qweather.com/v7/weather/3d?location={}&key={}".format(location_id, key)
-    response = get(weather_url, headers=headers).json()
+    #location_id = response.get('location', [])
+    #if location_id:
+     #   location_id = location_id[0].get("id")
+    #else:
+     #   print("无法获取地区信息，请检查API响应结构")
+    #weather_url = "https://devapi.qweather.com/v7/weather/3d?location={}&key={}".format(location_id, key)
+    #response = get(weather_url, headers=headers).json()
     # 天气帅达版
-    weather = '白天'+response['daily'][0]["textDay"]+'，'+'傍晚'+response['daily'][0]["textDay"]
+    #weather = '白天'+response['daily'][0]["textDay"]+'，'+'傍晚'+response['daily'][0]["textDay"]
     # 当前温度
-    temp = response['daily'][0]["tempMin"]+ u"\N{DEGREE SIGN}" + "C"+'—'+response['daily'][0]["tempMax"]+ u"\N{DEGREE SIGN}" + "C"
-    if int(response['daily'][0]["tempMin"]) <= 18:
-        xigua = "天气变凉啦，多穿点衣服哦~"
-    else:
-        xigua = "今天又是很想你的一天~"
+    #temp = response['daily'][0]["tempMin"]+ u"\N{DEGREE SIGN}" + "C"+'—'+response['daily'][0]["tempMax"]+ u"\N{DEGREE SIGN}" + "C"
+    #if int(response['daily'][0]["tempMin"]) <= 18:
+    #    xigua = "天气变凉啦，多穿点衣服哦~"
+    #else:
+    #    xigua = "今天又是很想你的一天~"
     # 风向
-    wind_dir = response['daily'][0]["windDirDay"]
-    return weather, temp, wind_dir, xigua
+    #wind_dir = response['daily'][0]["windDirDay"]
+    #return weather, temp, wind_dir, xigua
  
 #--------关注微信公众号：繁星资源，更多资源等你拿----------
 def get_birthday(birthday, year, today):
